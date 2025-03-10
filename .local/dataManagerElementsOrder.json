@@ -1,0 +1,84 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&"
+      ],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&3e2b0c88-87c5-4149-a4d8-f3402926a7e1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "dt_TransactionData&StateMachine_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&3e2b0c88-87c5-4149-a4d8-f3402926a7e1",
+        "dt_Url&Sequence_1",
+        "dt_Link&TryCatch_2",
+        "strUrl&Sequence_11",
+        "strName&Sequence_11",
+        "dt_Link&TryCatch_4",
+        "strUrl&Sequence_35",
+        "strName&Sequence_35",
+        "boolMatching&Sequence_36",
+        "intCode&Sequence_36",
+        "listMatch&Sequence_37",
+        "strResponse&Sequence_1",
+        "boolCheckEnd&Sequence_1",
+        "intPage&Sequence_1",
+        "listUrl&Sequence_1",
+        "boolMatching&Sequence_2",
+        "intCode&Sequence_2",
+        "listMatch&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&1869cfca-17d1-458f-bc7a-2d5239787616"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&1869cfca-17d1-458f-bc7a-2d5239787616",
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
