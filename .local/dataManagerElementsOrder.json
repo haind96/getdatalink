@@ -14,10 +14,10 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "Config&3e2b0c88-87c5-4149-a4d8-f3402926a7e1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
-        "dt_TransactionData&StateMachine_1"
+        "dt_TransactionData&StateMachine_1",
+        "Config&9f0bc575-2aa6-4705-ba57-9f14cea22001"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueName",
@@ -30,7 +30,8 @@
       "Path": "Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "Config&3e2b0c88-87c5-4149-a4d8-f3402926a7e1",
+        "listMatch&Sequence_51",
+        "Config&9f0bc575-2aa6-4705-ba57-9f14cea22001",
         "dt_Url&Sequence_1",
         "dt_Link&TryCatch_2",
         "strUrl&Sequence_11",
@@ -46,8 +47,7 @@
         "intPage&Sequence_1",
         "listUrl&Sequence_1",
         "boolMatching&Sequence_2",
-        "intCode&Sequence_2",
-        "listMatch&Sequence_3"
+        "intCode&Sequence_2"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
@@ -76,6 +76,22 @@
         "in_ConfigFile",
         "in_ConfigSheets",
         "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "GetLinkFromHtml.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_TempLink&Sequence_1",
+        "links&Sequence_1",
+        "Config&9f0bc575-2aa6-4705-ba57-9f14cea22001"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_bolEndPage",
+        "io_dt_Link",
+        "in_strHtml"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
