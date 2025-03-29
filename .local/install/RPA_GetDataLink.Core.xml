@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RPA_GetDataLink.Core</name>
+    </assembly>
+    <members>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.Process_BK(System.String,System.String,System.String)">
+            <summary>
+            Invokes the Tests/Process_BK.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.Process_BK(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Invokes the Tests/Process_BK.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetDataLink(System.String,System.Collections.Generic.List{System.Int32},System.String,System.Data.DataTable)">
+            <summary>
+            Invokes the Workflows/GetDataLink.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetDataLink(System.String,System.Collections.Generic.List{System.Int32},System.String,System.Data.DataTable,System.Boolean)">
+            <summary>
+            Invokes the Workflows/GetDataLink.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.Main(System.String,System.String,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            Invokes the Main.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.Main(System.String,System.String,System.Int32,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Invokes the Main.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTransactionData(System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Data.DataTable)">
+            <summary>
+            Invokes the Framework/GetTransactionData.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTransactionData(System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Data.DataTable,System.Boolean)">
+            <summary>
+            Invokes the Framework/GetTransactionData.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetLinkFromHtml(System.String,System.String,System.Data.DataTable,System.Boolean)">
+            <summary>
+            Invokes the GetLinkFromHtml.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetLinkFromHtml(System.String,System.String,System.Data.DataTable,System.Boolean,System.Boolean)">
+            <summary>
+            Invokes the GetLinkFromHtml.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllApplications(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Invokes the Framework/InitAllApplications.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllApplications(System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+            Invokes the Framework/InitAllApplications.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.TakeScreenshot(System.String,System.String)">
+            <summary>
+            Invokes the Framework/TakeScreenshot.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.TakeScreenshot(System.String,System.String,System.Boolean)">
+            <summary>
+            Invokes the Framework/TakeScreenshot.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.KillAllProcesses">
+            <summary>
+            Invokes the Framework/KillAllProcesses.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.KillAllProcesses(System.Boolean)">
+            <summary>
+            Invokes the Framework/KillAllProcesses.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.SetTransactionStatus(UiPath.Core.BusinessRuleException,System.String,System.String,System.String,System.Exception,System.Collections.Generic.Dictionary{System.String,System.Object},UiPath.Core.QueueItem,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Invokes the Framework/SetTransactionStatus.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.SetTransactionStatus(UiPath.Core.BusinessRuleException,System.String,System.String,System.String,System.Exception,System.Collections.Generic.Dictionary{System.String,System.Object},UiPath.Core.QueueItem,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Invokes the Framework/SetTransactionStatus.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetLinkFromHtml_BK(System.String,System.Data.DataTable,System.Boolean)">
+            <summary>
+            Invokes the Tests/GetLinkFromHtml_BK.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetLinkFromHtml_BK(System.String,System.Data.DataTable,System.Boolean,System.Boolean)">
+            <summary>
+            Invokes the Tests/GetLinkFromHtml_BK.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.RetryCurrentTransaction(System.Collections.Generic.Dictionary{System.String,System.Object},System.Exception,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Invokes the Framework/RetryCurrentTransaction.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.RetryCurrentTransaction(System.Collections.Generic.Dictionary{System.String,System.Object},System.Exception,System.Boolean,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Invokes the Framework/RetryCurrentTransaction.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTotalPage(System.String,System.String,System.Int32)">
+            <summary>
+            Invokes the Workflows/GetTotalPage.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTotalPage(System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Invokes the Workflows/GetTotalPage.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllSettings(System.String,System.String[])">
+            <summary>
+            Invokes the Framework/InitAllSettings.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllSettings(System.String,System.String[],System.Boolean)">
+            <summary>
+            Invokes the Framework/InitAllSettings.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.CloseAllApplications">
+            <summary>
+            Invokes the Framework/CloseAllApplications.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.CloseAllApplications(System.Boolean)">
+            <summary>
+            Invokes the Framework/CloseAllApplications.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.Main1(System.String,System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Invokes the Tests/Main1.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.Main1(System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Invokes the Tests/Main1.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+    </members>
+</doc>

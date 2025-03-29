@@ -14,10 +14,10 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "Config&b4cffcf4-0720-4366-86bb-399ff098bafb",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
-        "dt_TransactionData&StateMachine_1",
-        "Config&9f0bc575-2aa6-4705-ba57-9f14cea22001"
+        "dt_TransactionData&StateMachine_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueName",
@@ -30,10 +30,10 @@
       "Path": "Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dt_Link&Sequence_11",
+        "Config&b4cffcf4-0720-4366-86bb-399ff098bafb",
         "listMatch&Sequence_51",
-        "Config&9f0bc575-2aa6-4705-ba57-9f14cea22001",
         "dt_Url&Sequence_1",
-        "dt_Link&TryCatch_2",
         "strUrl&Sequence_11",
         "strName&Sequence_11",
         "dt_Link&TryCatch_4",
@@ -84,9 +84,9 @@
       "Path": "GetLinkFromHtml.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dt_TempLink&Sequence_1",
+        "Config&b4cffcf4-0720-4366-86bb-399ff098bafb",
         "links&Sequence_1",
-        "Config&9f0bc575-2aa6-4705-ba57-9f14cea22001"
+        "dt_TempLink&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "io_bolEndPage",

@@ -50,13 +50,7 @@
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "eb537ae6-ddbd-4bdc-a366-d1bd45fcad08",
-      "input": [],
-      "output": []
-    },
-    {
-      "filePath": "Process.xaml",
-      "uniqueId": "09944ff0-afbf-4f77-bfdb-9a5516528d2c",
+      "uniqueId": "58433adc-eb11-41be-aead-3b0c7251eaab",
       "input": [],
       "output": []
     }
