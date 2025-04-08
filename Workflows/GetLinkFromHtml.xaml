@@ -4,6 +4,7 @@
     <x:Property Name="io_dt_Link" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_bolEndPage" Type="InOutArgument(x:Boolean)" />
     <x:Property Name="in_strPattern" Type="InArgument(x:String)" />
+    <x:Property Name="in_intPage" Type="InArgument(x:Int32)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -104,7 +105,7 @@
       <AssemblyReference>RPA_GetDataLink.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetLinkFromHtml" sap:VirtualizedContainerService.HintSize="1276,1159" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetLinkFromHtml" sap:VirtualizedContainerService.HintSize="742,1159" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)]" Name="links" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_TempLink" />
@@ -131,17 +132,11 @@
             </Assign.Value>
           </Assign>
           <ui:BuildDataTable DataTable="[dt_TempLink]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Link&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-          <ui:InvokeCode ContinueOnError="{x:Null}" Code="&#xD;&#xA;        //string pattern = @&quot;&lt;div\s+class=&quot;&quot;screen2__name&quot;&quot;\s+data-tooltip=&quot;&quot;(.*?)&quot;&quot;&gt;\s*&lt;a\s+[^&gt;]*?href=&quot;&quot;(.*?)&quot;&quot;[^&gt;]*?&gt;&quot;;&#xD;&#xA;        MatchCollection matches = Regex.Matches(htmlContent, pattern, RegexOptions.Singleline);&#xD;&#xA;        foreach (Match match in matches)&#xD;&#xA;        {&#xD;&#xA;            string jobTitle = match.Groups[1].Value;&#xD;&#xA;            string jobLink = match.Groups[2].Value;&#xD;&#xA;&#xD;&#xA;            jobTable.Rows.Add(jobTitle, jobLink);&#xD;&#xA;            //Console.WriteLine($&quot;Đã thêm: {jobTitle} | {jobLink}&quot;);&#xD;&#xA;        }&#xD;&#xA;" DisplayName="Invoke Code Get Links" sap:VirtualizedContainerService.HintSize="434,188" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="&#xA;        //string pattern = @&quot;&lt;div\s+class=&quot;&quot;screen2__name&quot;&quot;\s+data-tooltip=&quot;&quot;(.*?)&quot;&quot;&gt;\s*&lt;a\s+[^&gt;]*?href=&quot;&quot;(.*?)&quot;&quot;[^&gt;]*?&gt;&quot;;&#xA;        MatchCollection matches = Regex.Matches(htmlContent, pattern, RegexOptions.Singleline);&#xA;        foreach (Match match in matches)&#xA;        {&#xA;            string jobTitle = match.Groups[1].Value;&#xA;            string jobLink = match.Groups[2].Value;&#xA;&#xA;            jobTable.Rows.Add(jobTitle, jobLink);&#xA;            //Console.WriteLine($&quot;Đã thêm: {jobTitle} | {jobLink}&quot;);&#xA;        }&#xA;" DisplayName="Invoke Code Get Links" sap:VirtualizedContainerService.HintSize="434,188" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
             <ui:InvokeCode.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="htmlContent">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strHtml" />
-              </InArgument>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="jobTable">
-                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TempLink" />
-              </InOutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="pattern">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strPattern" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="htmlContent">[in_strHtml]</InArgument>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="jobTable">[dt_TempLink]</InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="pattern">[in_strPattern]</InArgument>
             </ui:InvokeCode.Arguments>
           </ui:InvokeCode>
         </Sequence>
@@ -192,7 +187,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {row(0).ToString,row(1).ToString}]" DataTable="[io_dt_Link]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,209" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() { &quot;P&quot;+if(in_intPage &gt;=10, in_intPage.ToString,&quot;0&quot;+in_intPage.ToString),row(0).ToString,row(1).ToString}]" DataTable="[io_dt_Link]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,209" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
               </Sequence>
             </ActivityAction>
           </ParallelForEach>
@@ -214,7 +209,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:CommentOut>
-          <Assign sap:VirtualizedContainerService.HintSize="500,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign DisplayName="Assign io_bolEndPage False" sap:VirtualizedContainerService.HintSize="500,105" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[io_bolEndPage]</OutArgument>
             </Assign.To>
@@ -231,7 +226,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="500,105" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign DisplayName="Assign io_bolEndPage True" sap:VirtualizedContainerService.HintSize="500,105" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[io_bolEndPage]</OutArgument>
             </Assign.To>

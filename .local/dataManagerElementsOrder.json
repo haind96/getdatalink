@@ -14,14 +14,27 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "Config&b4cffcf4-0720-4366-86bb-399ff098bafb",
-        "SystemException&StateMachine_1",
-        "BusinessException&StateMachine_1",
-        "dt_TransactionData&StateMachine_1"
+        "Config&6746e8a7-5e1d-4b43-b778-238c98addd25",
+        "listUrl&Sequence_1",
+        "dt_Url&Sequence_1",
+        "strPathFileGetLink&Sequence_1",
+        "strUrl&Sequence_11",
+        "strName&Sequence_11",
+        "dt_Link&Sequence_11",
+        "intTotalPage&Sequence_11",
+        "intPositions&Sequence_11",
+        "currentListOfNumber&Sequence_89",
+        "currentListOfNumber&Sequence_90",
+        "listGroupSize&Sequence_76",
+        "currentListOfNumber&Sequence_77"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_OrchestratorQueueName",
-        "in_OrchestratorQueueFolder"
+        "PathFileURL",
+        "FolderSaveData",
+        "SizeInPage",
+        "PatternLink",
+        "PatternTotals",
+        "GroupSize"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -92,6 +105,61 @@
         "io_bolEndPage",
         "io_dt_Link",
         "in_strHtml"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/GetTotalPage.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&6746e8a7-5e1d-4b43-b778-238c98addd25",
+        "strResponse&Sequence_1",
+        "intCode&Sequence_1",
+        "positions&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_intPositions",
+        "in_strPattern",
+        "in_strUrl",
+        "out_intTotalPage",
+        "in_intSizeInPage"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/GetDataLink.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&6746e8a7-5e1d-4b43-b778-238c98addd25",
+        "strResponse&Sequence_2",
+        "intCode&Sequence_2",
+        "bolEndPage&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "strUrl",
+        "currentListOfNumber",
+        "dt_Link",
+        "PatternLink"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/GetLinkFromHtml.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&6746e8a7-5e1d-4b43-b778-238c98addd25",
+        "links&Sequence_1",
+        "dt_TempLink&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_intPage",
+        "in_strHtml",
+        "io_dt_Link",
+        "io_bolEndPage",
+        "in_strPattern"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

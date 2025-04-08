@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" this:Process.PathFileURL="D:\1.Projects\RPA_GetDataLink\Tests\Tests.xlsx" this:Process.FolderSaveData="D:\3.Downloads" this:Process.SizeInPage="15" this:Process.PatternLink="[&quot;&lt;div\s+class=&quot;&quot;screen2__name&quot;&quot;\s+data-tooltip=&quot;&quot;(.*?)&quot;&quot;&gt;\s*&lt;a\s+[^&gt;]*?href=&quot;&quot;(.*?)&quot;&quot;[^&gt;]*?&gt;&quot;]" this:Process.PatternTotals="(\d{1,3}(?:,\d{3})*)\s*vị trí\s*tuyển\s*dụng" this:Process.GroupSize="30" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" this:Process.PathFileURL="D:\Tests.xlsx" this:Process.FolderSaveData="D:\3.Downloads" this:Process.SizeInPage="30" this:Process.PatternLink="[&quot;&lt;div\s+class=&quot;&quot;screen2__name&quot;&quot;\s+data-tooltip=&quot;&quot;(.*?)&quot;&quot;&gt;\s*&lt;a\s+[^&gt;]*?href=&quot;&quot;(.*?)&quot;&quot;[^&gt;]*?&gt;&quot;]" this:Process.PatternTotals="(\d{1,3}(?:,\d{3})*)\s*vị trí\s*tuyển\s*dụng" this:Process.GroupSize="30" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="PathFileURL" Type="InArgument(x:String)">
       <x:Property.Attributes>
@@ -180,7 +180,7 @@
       <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="1276,4035" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="742,2864" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="listUrl" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Url" />
@@ -191,7 +191,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign strPathFileGetLink" sap:VirtualizedContainerService.HintSize="587,115" sap2010:WorkflowViewState.IdRef="Assign_42">
+    <Assign DisplayName="Assign strPathFileGetLink" sap:VirtualizedContainerService.HintSize="587,114" sap2010:WorkflowViewState.IdRef="Assign_42">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strPathFileGetLink]</OutArgument>
       </Assign.To>
@@ -206,8 +206,27 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="416,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[strPathFileGetLink]" />
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_88">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_49">
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_49">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -215,32 +234,30 @@
           </sap:WorkflowViewStateService.ViewState>
         </Sequence>
       </TryCatch.Finally>
-      <TryCatch.Try>
-        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="416,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[strPathFileGetLink]" />
-      </TryCatch.Try>
     </TryCatch>
+    <ui:CreateDirectory Output="{x:Null}" ContinueOnError="True" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="587,112" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[FolderSaveData]" />
     <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Url]" DisplayName="Read PathFileURL" sap:VirtualizedContainerService.HintSize="587,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="[PathFileURL]" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Url]" DisplayName="fer_dt_Url" sap:VirtualizedContainerService.HintSize="587,3581" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Url]" DisplayName="fer_dt_Url" sap:VirtualizedContainerService.HintSize="587,2299" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="585,3370" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="585,2119" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[String.IsNullOrEmpty(row(&quot;NOTE&quot;).ToString) OrElse row(&quot;NOTE&quot;).ToString.trim.ToLower.Contains(&quot;Thành công&quot;.ToLower) = False]" DisplayName="If Check Note" sap:VirtualizedContainerService.HintSize="551,3310" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[String.IsNullOrEmpty(row(&quot;NOTE&quot;).ToString) OrElse row(&quot;NOTE&quot;).ToString.trim.ToLower.Contains(&quot;Thành công&quot;.ToLower) = False]" DisplayName="If Check Note" sap:VirtualizedContainerService.HintSize="551,2059" sap2010:WorkflowViewState.IdRef="If_8">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="549,3090" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="549,1840" sap2010:WorkflowViewState.IdRef="Sequence_53">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch DisplayName="tc_get_links" sap:VirtualizedContainerService.HintSize="515,3030" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch DisplayName="tc_get_links" sap:VirtualizedContainerService.HintSize="515,1780" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -248,19 +265,20 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence DisplayName="try_get_links" sap:VirtualizedContainerService.HintSize="513,2499" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence DisplayName="try_get_links" sap:VirtualizedContainerService.HintSize="513,1252" sap2010:WorkflowViewState.IdRef="Sequence_11">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="strUrl" />
                           <Variable x:TypeArguments="x:String" Name="strName" />
                           <Variable x:TypeArguments="sd:DataTable" Name="dt_Link" />
                           <Variable x:TypeArguments="x:Int32" Name="intTotalPage" />
+                          <Variable x:TypeArguments="x:Int32" Name="intPositions" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign First" sap:VirtualizedContainerService.HintSize="479,211" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                        <ui:MultipleAssign DisplayName="Multiple Assign First" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -290,19 +308,101 @@
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Tên : &quot;+strName+vbNewLine+&#xA;&quot;Lấy links của URL :  &quot;+strUrl]" />
-                        <ui:BuildDataTable DataTable="[dt_Link]" DisplayName="build_dt_Link" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_4" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Link&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetTotalPage - Invoke Workflow File (GetTotalPage.xaml)" sap:VirtualizedContainerService.HintSize="479,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\GetTotalPage.xaml">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Tên : &quot;+strName+vbNewLine+&#xA;&quot;Lấy links của URL :  &quot;+strUrl]" />
+                        <ui:BuildDataTable DataTable="[dt_Link]" DisplayName="build_dt_Link" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_4" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Page&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Link&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetTotalPage - Invoke Workflow File (GetTotalPage.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\GetTotalPage.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="in_strPattern">[PatternTotals]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_strUrl">[strUrl]</InArgument>
                             <OutArgument x:TypeArguments="x:Int32" x:Key="out_intTotalPage">[intTotalPage]</OutArgument>
                             <InArgument x:TypeArguments="x:Int32" x:Key="in_intSizeInPage">[SizeInPage]</InArgument>
+                            <OutArgument x:TypeArguments="x:Int32" x:Key="out_intPositions">[intPositions]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <If Condition="[intTotalPage &gt; GroupSize]" DisplayName="If TotalPage &lt;= GroupSize" sap:VirtualizedContainerService.HintSize="479,1326" sap2010:WorkflowViewState.IdRef="If_13">
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="CommentOut_20">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="504,873" sap2010:WorkflowViewState.IdRef="Sequence_92">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[intPositions &gt; 200 AndAlso intTotalPage &gt;7]" sap:VirtualizedContainerService.HintSize="470,813" sap2010:WorkflowViewState.IdRef="If_14">
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,342" sap2010:WorkflowViewState.IdRef="Sequence_89">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="scg:List(x:Int32)" Name="currentListOfNumber" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign DisplayName="Assign currentListOfNumber" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_43">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="scg:List(x:Int32)">[currentListOfNumber]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="scg:List(x:Int32)">[Enumerable.Range(intTotalPage-7,9).ToList]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetDataLink - Invoke Workflow File (Workflows\GetDataLink.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\GetDataLink.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="strUrl">[strUrl]</InArgument>
+                                        <InArgument x:TypeArguments="scg:List(x:Int32)" x:Key="currentListOfNumber">[currentListOfNumber]</InArgument>
+                                        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_Link">[dt_Link]</InOutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="PatternLink">[PatternLink]</InArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,342" sap2010:WorkflowViewState.IdRef="Sequence_90">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="scg:List(x:Int32)" Name="currentListOfNumber" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign DisplayName="Assign currentListOfNumber" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_44">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="scg:List(x:Int32)">[currentListOfNumber]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="scg:List(x:Int32)">[Enumerable.Range(1,intTotalPage+2).ToList]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetDataLink - Invoke Workflow File (Workflows\GetDataLink.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\GetDataLink.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="strUrl">[strUrl]</InArgument>
+                                        <InArgument x:TypeArguments="scg:List(x:Int32)" x:Key="currentListOfNumber">[currentListOfNumber]</InArgument>
+                                        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_Link">[dt_Link]</InOutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="PatternLink">[PatternLink]</InArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                        <If Condition="[intTotalPage &gt; GroupSize]" DisplayName="If TotalPage &gt; GroupSize" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="If_15">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,815" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,696" sap2010:WorkflowViewState.IdRef="Sequence_76">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="scg:List(scg:List(x:Int32))" Name="listGroupSize" />
                               </Sequence.Variables>
@@ -311,7 +411,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign listGroupSize" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_39">
+                              <Assign DisplayName="Assign listGroupSize" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_39">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="scg:List(scg:List(x:Int32))">[listGroupSize]</OutArgument>
                                 </Assign.To>
@@ -319,20 +419,20 @@
                                   <InArgument x:TypeArguments="scg:List(scg:List(x:Int32))">[RPA_GetDataLink.Common.GroupValues(intTotalPage+2, GroupSize)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Số lượng group : &quot;+listGroupSize.Count.ToString]" />
-                              <ui:ForEach x:TypeArguments="scg:List(x:Int32)" CurrentIndex="{x:Null}" DisplayName="For Each currentListOfNumber" sap:VirtualizedContainerService.HintSize="434,465" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listGroupSize]">
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Số lượng group : &quot;+listGroupSize.Count.ToString]" />
+                              <ui:ForEach x:TypeArguments="scg:List(x:Int32)" CurrentIndex="{x:Null}" DisplayName="For Each currentListOfNumber" sap:VirtualizedContainerService.HintSize="434,349" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listGroupSize]">
                                 <ui:ForEach.Body>
                                   <ActivityAction x:TypeArguments="scg:List(x:Int32)">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="scg:List(x:Int32)" Name="currentListOfNumber" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,314" sap2010:WorkflowViewState.IdRef="Sequence_86">
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="Sequence_86">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetDataLink - Invoke Workflow File (Workflows\GetDataLink.xaml)" sap:VirtualizedContainerService.HintSize="382,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\GetDataLink.xaml">
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetDataLink - Invoke Workflow File (Workflows\GetDataLink.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\GetDataLink.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
                                           <InArgument x:TypeArguments="x:String" x:Key="strUrl">[strUrl]</InArgument>
                                           <InArgument x:TypeArguments="scg:List(x:Int32)" x:Key="currentListOfNumber">[currentListOfNumber]</InArgument>
@@ -340,24 +440,6 @@
                                           <InArgument x:TypeArguments="x:String" x:Key="PatternLink">[PatternLink]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
-                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="CommentOut_18">
-                                        <ui:CommentOut.Body>
-                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,174" sap2010:WorkflowViewState.IdRef="Sequence_87">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <Delay DisplayName="Delay 1s" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                                          </Sequence>
-                                        </ui:CommentOut.Body>
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                      </ui:CommentOut>
                                     </Sequence>
                                   </ActivityAction>
                                 </ui:ForEach.Body>
@@ -371,7 +453,7 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,372" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,342" sap2010:WorkflowViewState.IdRef="Sequence_77">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="scg:List(x:Int32)" Name="currentListOfNumber" />
                               </Sequence.Variables>
@@ -380,7 +462,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign currentListOfNumber" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_41">
+                              <Assign DisplayName="Assign currentListOfNumber" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_41">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="scg:List(x:Int32)">[currentListOfNumber]</OutArgument>
                                 </Assign.To>
@@ -388,7 +470,7 @@
                                   <InArgument x:TypeArguments="scg:List(x:Int32)">[Enumerable.Range(1,intTotalPage+2).ToList]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetDataLink - Invoke Workflow File (Workflows\GetDataLink.xaml)" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\GetDataLink.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetDataLink - Invoke Workflow File (Workflows\GetDataLink.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\GetDataLink.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="x:String" x:Key="strUrl">[strUrl]</InArgument>
                                   <InArgument x:TypeArguments="scg:List(x:Int32)" x:Key="currentListOfNumber">[currentListOfNumber]</InArgument>
@@ -399,9 +481,9 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Số lượng link lấy được : &quot;+dt_Link.RowCount.ToString]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Số lượng link lấy được : &quot;+dt_Link.RowCount.ToString]" />
                         <ui:WriteRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Link]" DisplayName="Write PathFileGetLink" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="[strName]" StartingCell="A1" WorkbookPath="[strPathFileGetLink]" />
-                        <Assign DisplayName="Assign row(&quot;NOTE&quot;)" sap:VirtualizedContainerService.HintSize="479,106" sap2010:WorkflowViewState.IdRef="Assign_34">
+                        <Assign DisplayName="Assign row(&quot;NOTE&quot;)" sap:VirtualizedContainerService.HintSize="479,105" sap2010:WorkflowViewState.IdRef="Assign_34">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[row("NOTE")]</OutArgument>
                           </Assign.To>
@@ -417,14 +499,14 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="513,341" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="513,338" sap2010:WorkflowViewState.IdRef="Sequence_13">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[exception.Message]" />
-                            <Assign DisplayName="Assign row(&quot;NOTE&quot;)" sap:VirtualizedContainerService.HintSize="479,106" sap2010:WorkflowViewState.IdRef="Assign_35">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[exception.Message]" />
+                            <Assign DisplayName="Assign row(&quot;NOTE&quot;)" sap:VirtualizedContainerService.HintSize="479,105" sap2010:WorkflowViewState.IdRef="Assign_35">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Object">[row("NOTE")]</OutArgument>
                               </Assign.To>

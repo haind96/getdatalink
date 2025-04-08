@@ -4,6 +4,7 @@
     <x:Property Name="in_strUrl" Type="InArgument(x:String)" />
     <x:Property Name="out_intTotalPage" Type="OutArgument(x:Int32)" />
     <x:Property Name="in_intSizeInPage" Type="InArgument(x:Int32)" />
+    <x:Property Name="out_intPositions" Type="OutArgument(x:Int32)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -113,7 +114,7 @@
       <AssemblyReference>RPA_GetDataLink.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetTotalPage" sap:VirtualizedContainerService.HintSize="1276,795" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetTotalPage" sap:VirtualizedContainerService.HintSize="742,909" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strResponse" />
       <Variable x:TypeArguments="x:Int32" Name="intCode" />
@@ -141,9 +142,9 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <If Condition="[intCode = 200]" DisplayName="If intCode = 200" sap:VirtualizedContainerService.HintSize="470,670" sap2010:WorkflowViewState.IdRef="If_4">
+    <If Condition="[intCode = 200]" DisplayName="If intCode = 200" sap:VirtualizedContainerService.HintSize="470,784" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,452" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,566" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,6 +158,14 @@
               <InArgument x:TypeArguments="x:String">[RPA_GetDataLink.Common.GetPositionsFromHtml(strResponse,in_strPattern)]</InArgument>
             </Assign.Value>
           </Assign>
+          <Assign DisplayName="Assign out_intPositions" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[out_intPositions]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(Convert.ToDouble(positions.Trim.Replace(" ","")))]</InArgument>
+            </Assign.Value>
+          </Assign>
           <Assign DisplayName="Assign out_intTotalPage" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[out_intTotalPage]</OutArgument>
@@ -165,7 +174,7 @@
               <InArgument x:TypeArguments="x:Int32">[RPA_GetDataLink.Common.GetTotalPages(Convert.ToInt32(Convert.ToDouble(positions.Trim.Replace(" ",""))),in_intSizeInPage)]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Tổng số dữ liệu cần lấy : &quot;+positions+vbNewLine+&#xD;&#xA;&quot;Tổng số lượng trang : &quot;+out_intTotalPage.ToString()]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Tổng số dữ liệu cần lấy : &quot;+positions+vbNewLine+&#xA;&quot;Tổng số lượng trang : &quot;+out_intTotalPage.ToString()]" />
         </Sequence>
       </If.Then>
       <If.Else>
