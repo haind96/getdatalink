@@ -187,7 +187,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() { &quot;P&quot;+if(in_intPage &gt;=10, in_intPage.ToString,&quot;0&quot;+in_intPage.ToString),row(0).ToString,row(1).ToString}]" DataTable="[io_dt_Link]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,209" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() { &quot;P&quot;+if(in_intPage &gt;=10, in_intPage.ToString,&quot;0&quot;+in_intPage.ToString),row(0).ToString,row(1).ToString,row(2).ToString,row(3).ToString}]" DataTable="[io_dt_Link]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,209" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
               </Sequence>
             </ActivityAction>
           </ParallelForEach>

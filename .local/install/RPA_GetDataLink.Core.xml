@@ -15,17 +15,6 @@
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllApplications(System.Collections.Generic.Dictionary{System.String,System.Object})">
-            <summary>
-            Invokes the Framework/InitAllApplications.xaml
-            </summary>
-        </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllApplications(System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
-            <summary>
-            Invokes the Framework/InitAllApplications.xaml
-            </summary>
-            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        </member>
         <member name="M:RPA_GetDataLink.WorkflowRunnerService.SetTransactionStatus(UiPath.Core.BusinessRuleException,System.String,System.String,System.String,System.Exception,System.Collections.Generic.Dictionary{System.String,System.Object},UiPath.Core.QueueItem,System.Int32,System.Int32,System.Int32)">
             <summary>
             Invokes the Framework/SetTransactionStatus.xaml
@@ -34,6 +23,17 @@
         <member name="M:RPA_GetDataLink.WorkflowRunnerService.SetTransactionStatus(UiPath.Core.BusinessRuleException,System.String,System.String,System.String,System.Exception,System.Collections.Generic.Dictionary{System.String,System.Object},UiPath.Core.QueueItem,System.Int32,System.Int32,System.Int32,System.Boolean)">
             <summary>
             Invokes the Framework/SetTransactionStatus.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.KillAllProcesses">
+            <summary>
+            Invokes the Framework/KillAllProcesses.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.KillAllProcesses(System.Boolean)">
+            <summary>
+            Invokes the Framework/KillAllProcesses.xaml
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
@@ -70,36 +70,25 @@
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.RetryCurrentTransaction(System.Collections.Generic.Dictionary{System.String,System.Object},System.Exception,System.Boolean,System.Int32,System.Int32)">
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllSettings(System.String,System.String[])">
             <summary>
-            Invokes the Framework/RetryCurrentTransaction.xaml
+            Invokes the Framework/InitAllSettings.xaml
             </summary>
         </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.RetryCurrentTransaction(System.Collections.Generic.Dictionary{System.String,System.Object},System.Exception,System.Boolean,System.Int32,System.Int32,System.Boolean)">
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllSettings(System.String,System.String[],System.Boolean)">
             <summary>
-            Invokes the Framework/RetryCurrentTransaction.xaml
-            </summary>
-            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.KillAllProcesses">
-            <summary>
-            Invokes the Framework/KillAllProcesses.xaml
-            </summary>
-        </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.KillAllProcesses(System.Boolean)">
-            <summary>
-            Invokes the Framework/KillAllProcesses.xaml
+            Invokes the Framework/InitAllSettings.xaml
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTransactionData(System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Data.DataTable)">
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllApplications(System.Collections.Generic.Dictionary{System.String,System.Object})">
             <summary>
-            Invokes the Framework/GetTransactionData.xaml
+            Invokes the Framework/InitAllApplications.xaml
             </summary>
         </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTransactionData(System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Data.DataTable,System.Boolean)">
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllApplications(System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
             <summary>
-            Invokes the Framework/GetTransactionData.xaml
+            Invokes the Framework/InitAllApplications.xaml
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
@@ -114,14 +103,25 @@
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllSettings(System.String,System.String[])">
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.RetryCurrentTransaction(System.Collections.Generic.Dictionary{System.String,System.Object},System.Exception,System.Boolean,System.Int32,System.Int32)">
             <summary>
-            Invokes the Framework/InitAllSettings.xaml
+            Invokes the Framework/RetryCurrentTransaction.xaml
             </summary>
         </member>
-        <member name="M:RPA_GetDataLink.WorkflowRunnerService.InitAllSettings(System.String,System.String[],System.Boolean)">
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.RetryCurrentTransaction(System.Collections.Generic.Dictionary{System.String,System.Object},System.Exception,System.Boolean,System.Int32,System.Int32,System.Boolean)">
             <summary>
-            Invokes the Framework/InitAllSettings.xaml
+            Invokes the Framework/RetryCurrentTransaction.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTransactionData(System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Data.DataTable)">
+            <summary>
+            Invokes the Framework/GetTransactionData.xaml
+            </summary>
+        </member>
+        <member name="M:RPA_GetDataLink.WorkflowRunnerService.GetTransactionData(System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Data.DataTable,System.Boolean)">
+            <summary>
+            Invokes the Framework/GetTransactionData.xaml
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>

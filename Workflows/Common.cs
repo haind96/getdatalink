@@ -49,11 +49,37 @@ namespace RPA_GetDataLink
             return totalPages;
         }
 
+//        public static DataTable GetJobTitlesAndLinks(string htmlContent, string pattern)
+//        {
+//            DataTable jobTable = new DataTable();
+//            jobTable.Columns.Add("Subject", typeof(string));
+//            jobTable.Columns.Add("Link", typeof(string));
+
+//            // Tìm tất cả các kết quả khớp với biểu thức
+//            MatchCollection matches = Regex.Matches(htmlContent, pattern, RegexOptions.Singleline);
+
+//            // Duyệt qua các kết quả và thêm vào bảng
+//            foreach (Match match in matches)
+//            {
+//                string jobTitle = match.Groups[1].Value;  // Lấy tên công việc từ nhóm 1
+//                string jobLink = match.Groups[2].Value;   // Lấy link công việc từ nhóm 2
+
+//                jobTable.Rows.Add(jobTitle, jobLink);
+//            }
+
+//            return jobTable;
+//        }
+
+
         public static DataTable GetJobTitlesAndLinks(string htmlContent, string pattern)
         {
             DataTable jobTable = new DataTable();
+
+            // Thêm cột cho tiêu đề công việc, link công việc, tên công ty, link công ty
             jobTable.Columns.Add("Subject", typeof(string));
             jobTable.Columns.Add("Link", typeof(string));
+            jobTable.Columns.Add("CompanyName", typeof(string));
+            jobTable.Columns.Add("CompanyLink", typeof(string));
 
             // Tìm tất cả các kết quả khớp với biểu thức
             MatchCollection matches = Regex.Matches(htmlContent, pattern, RegexOptions.Singleline);
@@ -61,14 +87,17 @@ namespace RPA_GetDataLink
             // Duyệt qua các kết quả và thêm vào bảng
             foreach (Match match in matches)
             {
-                string jobTitle = match.Groups[1].Value;  // Lấy tên công việc từ nhóm 1
-                string jobLink = match.Groups[2].Value;   // Lấy link công việc từ nhóm 2
+                string jobTitle = match.Groups.Count > 1 ? match.Groups[1].Value.Trim() : string.Empty;
+                string jobLink = match.Groups.Count > 2 ? match.Groups[2].Value.Trim() : string.Empty;
+                string companyLink = match.Groups.Count > 3 ? match.Groups[3].Value.Trim() : string.Empty;
+                string companyName = match.Groups.Count > 4 ? match.Groups[4].Value.Trim() : string.Empty;
 
-                jobTable.Rows.Add(jobTitle, jobLink);
+                jobTable.Rows.Add(jobTitle, jobLink, companyName, companyLink);
             }
 
             return jobTable;
         }
+
 
         public static List<List<int>> GroupValues(int totalValue, int groupSize)
         {
